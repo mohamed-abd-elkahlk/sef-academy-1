@@ -2,10 +2,10 @@
   "name": "sef-project",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "dev": "nodemon",
-    "production": "MODE='production' node server.js"
+    "start": "MODE='production' node server.js"
   },
   "author": "",
   "license": "ISC",
