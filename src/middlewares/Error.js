@@ -1,9 +1,8 @@
 const glopalError = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
-  err.status = err.status || "error";
   if (process.env.MODE === "devlopment") {
     return res.status(err.statusCode).json({
-      status: err.status,
+      status: err.status || "error",
       error: err,
       message: err.message,
       stack: err.stack,

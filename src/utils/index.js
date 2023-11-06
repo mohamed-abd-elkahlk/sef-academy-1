@@ -11,30 +11,22 @@ class ApiFeatures {
     this.mongooseQuery = mongooseQuery;
     this.quryString = queryString;
   }
-
-  // filteraing
-  filter() {
-    const quryObj = { ...this.quryString };
-    const excludesFildes = ["page", "limit", "sort", "keyword", "fildes"];
-    const qurySrting = excludesFildes.forEach((fild) => delete quryObj[fild]);
-    this.mongooseQuery = this.mongooseQuery.find(qurySrting);
-
-    return this;
-  }
-
   // pagination ->
   pagenate(countDocuments) {
     const page = this.quryString.page * 1 || 1;
     const limit = this.quryString.limit * 1 || 10;
     const skip = (page - 1) * limit;
 
-    const pages = Math.ceil(countDocuments / limit);
+    const pages = Math.ceil(countDocuments / limit); // 45/ 10 = 5
+
     const pagenation = { currenPage: page, limit, pages };
+
     // next page
-    const endIndex = page * limit;
+    const endIndex = page * limit; //2*10 = 20
     if (endIndex < countDocuments) {
       pagenation.next = page + 1;
     }
+
     // prev page
     if (skip > 0) {
       pagenation.prev = page - 1;
@@ -46,12 +38,7 @@ class ApiFeatures {
 
   // sorting
   sort() {
-    if (this.quryString.sort) {
-      const sorting = this.quryString.sort.split(",").join(" ");
-      this.mongooseQuery = this.mongooseQuery.sort(sorting);
-    } else {
-      this.mongooseQuery = this.mongooseQuery.sort("createAt");
-    }
+    this.mongooseQuery = this.mongooseQuery.sort("createAt");
     return this;
   }
 
@@ -67,13 +54,14 @@ class ApiFeatures {
 
   // serching
   serch() {
-    if (this.quryString.q) {
+    if (this.quryString.keyword) {
       const qury = {};
       qury.$or = [
-        { title: { $regex: this.quryString.q, $options: "i" } },
-        { description: { $regex: this.quryString.q, $options: "i" } },
-        { name: { $regex: this.quryString.q, $options: "i" } },
-        { role: { $regex: this.quryString.q, $options: "i" } },
+        { title: { $regex: this.quryString.keyword, $options: "i" } },
+        { content: { $regex: this.quryString.keyword, $options: "i" } },
+        { status: { $regex: this.quryString.keyword, $options: "i" } },
+        { name: { $regex: this.quryString.keyword, $options: "i" } },
+        { status: { $regex: this.quryString.keyword, $options: "i" } },
       ];
       this.mongooseQuery = this.mongooseQuery.find(qury);
     }

@@ -3,7 +3,7 @@ const app = express();
 const glopalError = require("./middlewares/Error");
 const routes = require("./routes");
 const dbConnection = require("./config/dbConnection");
-const ApiError = require("./utils");
+const { ApiError } = require("./utils");
 require("dotenv").config({
   path: "./src/.env/config.env",
 });
@@ -15,11 +15,11 @@ app.use(require("morgan")("dev"));
 // routes
 
 // TODO: enable this route under after create some services
-// app.use("/api", routes);
+app.use("/api", routes);
 
 // handle all unused routes
 app.all("*", (req, res, next) => {
-  next(new ApiError(`can't find this route: ${req.originalUrl}`, 400));
+  next(new ApiError(`can't find this route: ${req.originalUrl}`, 404));
 });
 
 // glopal error handling
