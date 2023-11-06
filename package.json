@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon",
-    "start": "MODE='production' node server.js"
+    "start": "MODE='production' node src/server.js"
   },
   "author": "",
   "license": "ISC",
