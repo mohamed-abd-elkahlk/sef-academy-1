@@ -55,3 +55,16 @@ exports.getAll = (model) => {
     });
   });
 };
+
+exports.getOne = (Model) =>
+  asyncHandeler(async (req, res, next) => {
+    const { id } = req.params;
+
+    const document = await Model.findById(id);
+
+    if (!document) {
+      return next(ApiError(`no document with this id : ${id}`, 404));
+    }
+
+    res.status(200).json({ data: document });
+  });
