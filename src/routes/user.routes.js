@@ -6,6 +6,11 @@ const {
   getAllUsers,
   getOneUser,
   updateUser,
+  disableLogedUser,
+  getMe,
+  updateLoggedUserDate,
+  updateLoggedUserPassword,
+  addUserDataMiddlewere,
 } = require("../services/user.service");
 
 const {
@@ -26,7 +31,11 @@ router.delete("/delete", disableLogedUser);
 // TODO: add the image middlewer
 router.use(allowedTo("admin"));
 
-router.patch("/changePassword/:id", updateLoggedUserPassword);
+router.patch(
+  "/changePassword/:id",
+  addUserDataMiddlewere,
+  updateLoggedUserPassword
+);
 router
   .route("/admin")
   .get(getAllUsers)

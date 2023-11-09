@@ -1,7 +1,8 @@
 const asyncHandler = require("express-async-handler");
 const { ApiError } = require("../utils");
+const User = require("../modules/user.module");
 
-const allowedTo = (...roles) =>
+exports.allowedTo = (...roles) =>
   asyncHandler(async (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return next(
@@ -10,3 +11,5 @@ const allowedTo = (...roles) =>
     }
     next();
   });
+
+exports.logout = asyncHandler(async (req, res, next) => {});
