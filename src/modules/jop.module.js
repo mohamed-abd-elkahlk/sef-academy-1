@@ -11,10 +11,10 @@ const jobSchema = new mongoose.Schema({
         type:Date,
         default:Date.now
     },
-    Applicant:String,
-    Experience:String,
-    Email:String,
-    MobileNumber:Number,
+    applicant:String,
+    experience:String,
+    email:String,
+    mobileNumber:Number,
     companyName:{
         type:String,
         required:true
@@ -28,10 +28,10 @@ const jobSchema = new mongoose.Schema({
     currency:{type:String,
      default:"USD"
     },
-    jobDescription:String,
-    JobRequirements:String,
+    description:String,
+    requirements:String,
     skills:String
 
-})
+},{timestamps:true})
 const Job = mongoose.model("Job",jobSchema)
 module.exports =Job;
