@@ -35,16 +35,17 @@ exports.updateFunction = (Model) =>
     res.status(200).json({ data: document });
   });
 
-exports.getAll = (model) => {
+exports.getAll = (Model) =>
   asyncHandeler(async (req, res, next) => {
-    const documentcounter = await model.countDocuments();
-    const Api = new ApiFeatures(mode.find(), req.query)
+    const documentcounter = await Model.countDocuments();
+    const Api = new ApiFeatures(Model.find(), req.query)
       .pagenate(documentcounter)
       .limitFildes()
       .serch()
       .sort();
-    const { mogooseQuery, pagenation } = Api;
-    const document = await mogooseQuery;
+
+    const { mongooseQuery, pagenation } = Api;
+    const document = await mongooseQuery;
     if (!document) {
       return next(ApiError(`Could not find document`, 404));
     }
@@ -54,8 +55,6 @@ exports.getAll = (model) => {
       data: document,
     });
   });
-};
-
 exports.getOne = (Model) =>
   asyncHandeler(async (req, res, next) => {
     const { id } = req.params;
