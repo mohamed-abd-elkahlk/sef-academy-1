@@ -1,3 +1,19 @@
 const router = require("express").Router();
-router.route("/").get().post();
-router.route("/:id").get().post();
+
+const {
+  getOneArticle,
+  getAllArticles,
+  createArticle,
+  deleteArticle,
+  updateArticle,
+} = require("../services/Article.service");
+
+router.route("/").post(createArticle).get(getAllArticles);
+
+router
+  .route("/:id")
+  .put(updateArticle)
+  .delete(deleteArticle)
+  .get(getOneArticle);
+
+module.exports = router;

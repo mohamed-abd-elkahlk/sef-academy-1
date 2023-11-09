@@ -1,5 +1,15 @@
-const routes = require("express").Router();
+const router = require("express").Router();
 
-routes.route("/course").get().post();
+const {
+  getOneCourse,
+  getAllCourses,
+  createCourse,
+  deleteCourse,
+  updateCourse,
+} = require("../services/course.service");
 
-routes.route("/course/:id").get().post();
+router.route("/").post(createCourse).get(getAllCourses);
+
+router.route("/:id").put(updateCourse).delete(deleteCourse).get(getOneCourse);
+
+module.exports = router;
