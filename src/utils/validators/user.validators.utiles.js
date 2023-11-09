@@ -35,12 +35,8 @@ exports.createUserValidate = [
 
 exports.updateUserValidate = [
   check("id").isMongoId().withMessage("Invalid Mongod"),
-  check("name")
-    .optional()
-    .isString(),
-  check("mobile")
-    .optional()
-    .isMobilePhone(["ar-EG"]),
+  check("name").optional().isString(),
+  check("mobile").optional().isMobilePhone(["ar-EG"]),
   check("userId")
     .optional()
     .isString()

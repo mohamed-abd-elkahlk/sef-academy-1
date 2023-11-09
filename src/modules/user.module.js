@@ -39,6 +39,16 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+userSchema.pre("save", (next) => {
+  if (!this.isModified("password")) {
+    return next();
+  }
+  const password = genPasswordHash(this.password);
+  this.password = password.hashedPassword;
+  this.salt = password.salt;
+  next();
+});
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

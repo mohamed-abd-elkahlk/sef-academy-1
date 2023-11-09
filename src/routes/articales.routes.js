@@ -1,3 +1,3 @@
-const router = require('express').Router();
-router.route("/article").get().post()
-router.route("/article/:id").get().post()
+const router = require("express").Router();
+router.route("/").get().post();
+router.route("/:id").get().post();
