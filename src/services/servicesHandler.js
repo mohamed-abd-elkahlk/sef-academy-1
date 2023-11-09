@@ -9,7 +9,7 @@ exports.deleteOne = (Model) =>
     if (!document) {
       return next(ApiError(`can't find this id ${id}`, 404));
     }
-    res.status(201).json({ document });
+    res.status(204).json({});
   });
 
 exports.createOne = (Model) =>
