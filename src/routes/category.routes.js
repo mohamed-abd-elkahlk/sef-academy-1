@@ -1,4 +1,3 @@
-
 const router = require("express").Router();
 
 const {
@@ -6,12 +5,15 @@ const {
   getAllCatgories,
   crateCatgory,
   deleteCatgory,
-  updateCatgory
-} = require("../services/category");
+  updateCatgory,
+} = require("../services/category.service");
 
+router.route("/").post(crateCatgory).get(getAllCatgories);
 
-router.route("/").post(crateCatgory).get(getAllCatgory);
-
-router.route("/:id").put(updateCatgory).delete(deleteCatgory).get(getOneCatgory);
+router
+  .route("/:id")
+  .put(updateCatgory)
+  .delete(deleteCatgory)
+  .get(getOneCatgory);
 
 module.exports = router;
