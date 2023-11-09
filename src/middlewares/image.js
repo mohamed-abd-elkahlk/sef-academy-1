@@ -1,11 +1,19 @@
-const multer = require('multer');
+const multer = require("multer");
+const { ApiError } = require("../utils");
 
+const multeroOprions = () => {
+  const muletrStorge = multer.memoryStorage();
+  const multerFiletr = (req, file, cb) => {
+    if (file.mimetype.startsWith("image") || file.mimetype.startsWith("pdf")) {
+      cb(null, true);
+    } else {
+      cb(new ApiError("Only Images and pdf allowed", 400), false);
+    }
+  };
 
-const storage = multer.memoryStorage();
+  const upload = multer({ storage: muletrStorge, fileFilter: multerFiletr });
+  return upload;
+};
 
-
-const upload = multer({storage});
-
-
-exports.uploadSingle = (fieldName = "image")=> upload.single(fieldName);
-
+exports.uploadSingleImage = (fildName) => multeroOprions().single(fildName);
+exports.uploadSingleFile = (fildName) => multeroOprions().single(fildName);

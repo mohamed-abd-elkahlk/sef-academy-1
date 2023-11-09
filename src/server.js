@@ -4,6 +4,7 @@ const glopalError = require("./middlewares/Error");
 const routes = require("./routes");
 const dbConnection = require("./config/dbConnection");
 const { ApiError } = require("./utils");
+const passport = require("passport");
 require("dotenv").config({
   path: "./src/.env/config.env",
 });
@@ -12,6 +13,10 @@ dbConnection();
 // some usiful middlewers
 app.use(express.json());
 app.use(require("morgan")("dev"));
+
+passport.use(require("./config/passport"));
+app.use(passport.initialize());
+
 // routes
 
 // TODO: enable this route under after create some services

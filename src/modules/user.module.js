@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    salt: {
+      type: String,
+    },
     avatar: {
       type: String,
     },
