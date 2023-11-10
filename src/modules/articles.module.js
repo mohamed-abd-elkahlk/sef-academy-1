@@ -17,15 +17,20 @@ const articleSchema = new Schema({
     required: true,
     trim: true,
   },
+  // TODO: make it refere to category module
   category: {
     type: String,
     required: true,
   },
+
+  // TODO this is the published Date refctor it
   date: {
     type: String,
     required: true,
     trim: true,
   },
+
+  // TODO: make it refere to 3 valuse [published,scheduled,saved drafts]
   status: {
     type: String,
     required: true,

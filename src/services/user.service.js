@@ -9,7 +9,14 @@ exports.createUser = apiServices.createOne(User);
 
 //! normal user services
 
-exports.getMe = asyncHandler(async (req, res, next) => {});
+exports.getMe = asyncHandler(async (req, res, next) => {
+  const id = req.user_id;
+  const user = await User.findById(id);
+  if (!user) {
+    return next(ApiError(`try to login to show your data: `, 404));
+  }
+  res.status(200).json({ data: user });
+});
 
 exports.updateLoggedUserDate = asyncHandler(async (req, res) => {});
 

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// TODO: add score ,about,age,city,country,education{unvirsty,major,graduation year},contact info{email,mobileNumber},cv
 const userSchema = new mongoose.Schema(
   {
     name: {
