@@ -20,4 +20,13 @@ exports.addUserDataMiddlewere = asyncHandler(async (req, res, next) => {
 
 exports.updateLoggedUserPassword = asyncHandler(async (req, res, next) => {});
 
-exports.disableLogedUser = asyncHandler(async (req, res) => {});
+exports.disableLogedUser = asyncHandler(async (req, res) => {
+  req.params.id = req.user._id;
+  await User.findByIdAndUpdate(req.user._id,{active:false});
+  res.status(200).json({
+    success: true,
+    message: "Your account has been disabled",
+  }).clearCookie("jwt");
+
+
+});
