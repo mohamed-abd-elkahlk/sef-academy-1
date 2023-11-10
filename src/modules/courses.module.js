@@ -14,6 +14,8 @@ const courseSchema = new mongoose.Schema({
   certificate: Boolean,
 });
 
+// TODO:  add this filed to courseScheam {level,student's,instarctor,img,students}
+
 const Course = mongoose.model("Course", courseSchema);
 
 module.exports = Course;
