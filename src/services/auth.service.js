@@ -16,8 +16,7 @@ exports.allowedTo = (...roles) =>
 exports.login = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ userId: req.body.userId });
   if (!user) {
-    return;
-    next(new ApiError("Invalid userId or password", 401));
+    return next(new ApiError("Invalid userId or password", 401));
   }
   const verifyPassword = verifyPasswordHash(
     req.body.password,
@@ -35,4 +34,6 @@ exports.login = asyncHandler(async (req, res, next) => {
   //user.tokens.push(token )
   //await user.save()
 });
+
 exports.logout = asyncHandler(async (req, res, next) => {});
+// TODO: add logout function

@@ -8,6 +8,16 @@ const {
   updateCatgory,
 } = require("../services/category.service");
 
+const { allowedTo } = require("../services/auth.service");
+const passport = require("passport");
+
+passport.authenticate("jwt", {
+  session: false,
+  ingnoreEpiration: false,
+  userProperty: "user",
+});
+
+router.use(allowedTo("admin"));
 router.route("/").post(crateCatgory).get(getAllCatgories);
 
 router
