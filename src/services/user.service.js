@@ -1,6 +1,9 @@
 const asyncHandler = require("express-async-handler");
 const apiServices = require("./servicesHandler");
 const User = require("../modules/user.module");
+
+const { genPasswordHash, issueJwt } = require("../utils/auth");
+const { ApiError } = require("../utils");
 //! admin services
 exports.getOneUser = apiServices.getOne(User);
 exports.getAllUsers = apiServices.getAll(User);
@@ -26,7 +29,27 @@ exports.addUserDataMiddlewere = asyncHandler(async (req, res, next) => {
   next();
 });
 
-exports.updateLoggedUserPassword = asyncHandler(async (req, res, next) => {});
+exports.updateLoggedUserPassword = asyncHandler(async (req, res, next) => {
+  const id = req.user._id;
+  const newPassword = genPasswordHash(req.body.password);
+  const updatedData = {
+    password: newPassword.hashedPassword,
+    salt: newPassword.salt,
+    passwordChangedAt: Date.now(),
+  };
+
+  const user = await User.findByIdAndUpdate(id, updatedData, { new: true });
+
+  if (!user) {
+    return next(new ApiError("try to log in", 404));
+  }
+  const token = issueJwt(user);
+
+  res
+    .status(200)
+    .cookie("jwt", token, { httpOnly: true, sameSite: "strict" })
+    .json({ data: user, token });
+});
 
 exports.disableLogedUser = asyncHandler(async (req, res) => {
   req.params.id = req.user._id;
