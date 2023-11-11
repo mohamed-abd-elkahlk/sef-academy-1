@@ -34,8 +34,7 @@ exports.createUserValidate = [
 ];
 exports.loginUserValidate = [
   check("userId").notEmpty().withMessage("userId is required").isString(),
-  check("password").notEmpty().withMessage("password is required").isString()
-  .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+  check("password").notEmpty().withMessage("password is required").isString(),
   validatorMiddleware,
 ];
 
