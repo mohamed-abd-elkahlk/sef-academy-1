@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { logout, login } = require("../services/auth.service");
-
-router.post("/login", /*loginValidator,*/ login);
+const {loginUserValidate} = require("../utils/validators/user.validators.utiles")
+router.post("/login",loginUserValidate, login);
 router.post("/logout", logout);
 
 module.exports = router;

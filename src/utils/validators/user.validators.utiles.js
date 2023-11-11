@@ -32,6 +32,12 @@ exports.createUserValidate = [
 
   validatorMiddleware,
 ];
+exports.loginUserValidate = [
+  check("userId").notEmpty().withMessage("userId is required").isString(),
+  check("password").notEmpty().withMessage("password is required").isString()
+  .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+  validatorMiddleware,
+];
 
 exports.updateUserValidate = [
   check("id").isMongoId().withMessage("Invalid Mongod"),
