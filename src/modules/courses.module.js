@@ -12,6 +12,16 @@ const courseSchema = new mongoose.Schema({
   courseRequirements: String,
   numberOfLessons: Number,
   certificate: Boolean,
+  level:Number,
+  instructor:{
+    type:mongoose.Types.ObjectId,
+    ref:"User"
+  },
+  image:String,
+  students:[{
+    type:mongoose.Types.ObjectId,
+    ref:"Student"
+  }]
 });
 
 // TODO:  add this filed to courseScheam {level,student's,instarctor,img,students}
