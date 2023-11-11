@@ -21,6 +21,7 @@ const {
 const {
   mongoIdValidate,
 } = require("../utils/validators/mongoId.validators.utiles");
+const { allowedTo } = require("../services/auth.service");
 
 router.use(allowedTo("user"));
 
@@ -39,11 +40,11 @@ router.patch(
 router
   .route("/admin")
   .get(getAllUsers)
-  .post(uplaodUserImage, resizeImage, createUserValidate, createUser);
+  .post(/*uplaodUserImage, resizeImage,*/ createUserValidate, createUser);
 router
   .route("/admin/:id")
   .get(getOneUser)
-  .put(uplaodUserImage, resizeImage, updateUserValidate, updateUser)
+  .put(/*uplaodUserImage, resizeImage,*/ updateUserValidate, updateUser)
   .delete(mongoIdValidate, deleteUser);
 
 module.exports = router;

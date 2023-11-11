@@ -6,7 +6,7 @@ const {
   createJob,
   deleteJob,
   updateJob,
-} = require("../services/jobs.services");
+} = require("../services/jobs.service");
 
 const {
   createJopValidate,

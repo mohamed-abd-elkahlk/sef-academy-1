@@ -1,3 +1,4 @@
+const asyncHandler = require("express-async-handler");
 const apiServices = require("./servicesHandler");
 const User = require("../modules/user.module");
 //! admin services

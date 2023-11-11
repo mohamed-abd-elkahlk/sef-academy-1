@@ -6,7 +6,7 @@ const {
   createArticle,
   deleteArticle,
   updateArticle,
-} = require("../services/Article.service");
+} = require("../services/aticals.service");
 
 router.route("/").post(createArticle).get(getAllArticles);
 
