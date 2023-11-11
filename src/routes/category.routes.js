@@ -10,13 +10,13 @@ const {
 
 const { allowedTo } = require("../services/auth.service");
 const passport = require("passport");
-
-passport.authenticate("jwt", {
-  session: false,
-  ingnoreEpiration: false,
-  userProperty: "user",
-});
-
+router.use(
+  passport.authenticate("jwt", {
+    session: false,
+    ignoreExpiration: false,
+    userProperty: "user",
+  })
+);
 router.use(allowedTo("admin"));
 router.route("/").post(crateCatgory).get(getAllCatgories);
 

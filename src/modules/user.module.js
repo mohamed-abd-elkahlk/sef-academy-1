@@ -1,12 +1,7 @@
 const mongoose = require("mongoose");
-// TODO: add score ,about,age,city,country,education{unvirsty,major,graduation year},contact info{email,mobileNumber},cv
 const userSchema = new mongoose.Schema(
   {
     name: {
-      type: String,
-      trim: true,
-    },
-    mobile: {
       type: String,
       trim: true,
     },
@@ -29,6 +24,24 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    score: { type: Number, default: 0 },
+    about: { type: String },
+    age: { type: Number },
+    city: { type: String },
+    country: { type: String },
+    education: {
+      university: { type: String, required: true },
+      major: { type: String },
+      graduation_year: { type: Number },
+    },
+    contact_info: [
+      {
+        email: String,
+        mobile: Number,
+      },
+    ],
+    cv: { type: String },
+
     salt: {
       type: String,
     },

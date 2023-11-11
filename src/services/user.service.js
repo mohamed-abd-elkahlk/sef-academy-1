@@ -22,7 +22,21 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   res.status(200).json({ data: user });
 });
 
-exports.updateLoggedUserDate = asyncHandler(async (req, res) => {});
+exports.updateLoggedUserDate = asyncHandler(async (req, res) => {
+  const userId = req.user._id;
+  if (req.body.password) {
+    return next(new ApiError(`you can't update password here`, 404));
+  }
+  const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
+    new: true,
+  });
+
+  if (!updatedUser) {
+    return next(new ApiError(`No user with this id: ${userId}`, 404));
+  }
+
+  res.status(200).json({ data: updatedUser });
+});
 
 exports.addUserDataMiddlewere = asyncHandler(async (req, res, next) => {
   req.params.id = req.user._id;

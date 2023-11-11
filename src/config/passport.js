@@ -7,22 +7,20 @@ const pupKeyPath = path.join(__dirname, "../.env/id_rsa_pup.pem");
 const PUP_KEY = fs.readFileSync(pupKeyPath, "utf-8");
 
 const cookiesExtractor = (req) => {
- 
-  // let token;
-  // if (!req.cookies.jwt) {
-  //   token = null;
-  //   return token;
-  // }
-  // token = req.cookies.jwt;
-  // return token;
-  
- // refactor 
-  let token = null;
-  if(req.cookies.jwt)
-    token = req.cookies.jwt;
-
+  let token;
+  if (!req.cookies.jwt) {
+    token = null;
+    return token;
+  }
+  token = req.cookies.jwt;
   return token;
 
+  // refactor
+  // let token = null;
+  // if(req.cookies.jwt)
+  //   token = req.cookies.jwt;
+
+  // return token;
 };
 
 const strategy = new jwtStrategy(

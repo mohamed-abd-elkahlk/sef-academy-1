@@ -23,14 +23,14 @@ const {
 } = require("../utils/validators/mongoId.validators.utiles");
 const { allowedTo } = require("../services/auth.service");
 
-router.use(allowedTo("user"));
+// router.use(allowedTo("user"));
 
 router.get("/me", getMe);
 router.patch("/change/Password", updateLoggedUserPassword);
 router.put("/update", updateLoggedUserDate);
 router.delete("/delete", disableLogedUser);
 // TODO: add the image middlewer
-router.use(allowedTo("admin"));
+// router.use(allowedTo("admin"));
 
 router.patch(
   "/changePassword/:id",

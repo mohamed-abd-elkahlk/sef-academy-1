@@ -13,6 +13,7 @@ dbConnection();
 // some usiful middlewers
 app.use(express.json());
 app.use(require("morgan")("dev"));
+app.use(require("cookie-parser")());
 
 passport.use(require("./config/passport"));
 app.use(passport.initialize());

@@ -2,37 +2,51 @@ const mongoose = require("mongoose");
 // TODO: refactor it and add copmpany {name,desrption,logo} jop type {remote, on site},apllyed user to this jop
 const jobSchema = new mongoose.Schema(
   {
-    company: String,
-    position: String,
+    company: {
+      name: {
+        type: String,
+        required: true,
+      },
+      description: String,
+      logo: String,
+    },
+    position: {
+      type: String,
+      required: true,
+    },
     status: {
       type: String,
-      enum: ["open", "Colsed", "In progress"],
-      default: "Open",
+      enum: ["open", "closed", "inProgress"],
+      default: "open",
     },
     postedAt: {
       type: Date,
       default: Date.now,
     },
-    applicant: String,
-    experience: String,
-    email: String,
-    mobileNumber: Number,
-    companyName: {
+    jobType: {
       type: String,
-      required: true,
+      enum: ["remote", "onSite"],
+      default: "onSite",
     },
-    field: {
-      type: String,
-      required: true,
-    },
+    appliedUsers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User", //user model
+      },
+    ],
     location: String,
     salaryRange: String,
-    currency: { type: String, default: "USD" },
-    jopDescription: String,
+    currency: {
+      type: String,
+      default: "USD",
+    },
+    jobDescription: String,
     requirements: String,
     skills: [String],
   },
   { timestamps: true }
 );
+
 const Job = mongoose.model("Job", jobSchema);
+
 module.exports = Job;
