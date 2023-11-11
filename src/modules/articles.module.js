@@ -17,29 +17,36 @@ const articleSchema = new Schema({
     required: true,
     trim: true,
   },
-  // TODO: make it refere to category module
+  
   category: {
     type: String,
     required: true,
+    ref: "Category",
+    localField: "_id",
+    foreignField: "article",
   },
+  
+ 
 
   // TODO this is the published Date refctor it
-  date: {
-    type: String,
-    required: true,
-    trim: true,
+ 
+  date:{
+  type: Date,
+  default: Date.now
   },
 
   // TODO: make it refere to 3 valuse [published,scheduled,saved drafts]
   status: {
     type: String,
     required: true,
+    enum:["published" ,"scheduled","saved drafts"]
   },
   owner: {
     type: mongoose.Types.ObjectId,
     ref: "user",
     required: true,
   },
+  
 });
 const Article = mongoose.model("article", articleSchema);
 module.exports = Article;
