@@ -25,8 +25,17 @@ const { allowedTo } = require("../services/auth.service");
 
 // router.use(allowedTo("user"));
 
+const passport = require("passport");
+router.use(
+  passport.authenticate("jwt", {
+    session: false,
+    ignoreExpiration: false,
+    userProperty: "user",
+  })
+);
+
 router.get("/me", getMe);
-router.patch("/change/Password", updateLoggedUserPassword);
+router.patch("/change/password", updateLoggedUserPassword);
 router.put("/update", updateLoggedUserDate);
 router.delete("/delete", disableLogedUser);
 // TODO: add the image middlewer

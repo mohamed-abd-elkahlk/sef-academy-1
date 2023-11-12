@@ -5,13 +5,13 @@ const {
   loginUserValidate,
 } = require("../utils/validators/user.validators.utiles");
 router.post("/login", loginUserValidate, login);
-router.use(
-  passport.authenticate("jwt", {
-    userProperty: "user",
-    session: false,
-    ignoreExpiration: false,
-  })
-);
+// router.use(
+//   passport.authenticate("jwt", {
+//     userProperty: "user",
+//     session: false,
+//     ignoreExpiration: false,
+//   })
+// );
 router.post("/logout", logout);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const { ApiError } = require("../utils");
-const { verifyPasswordHash, issueJwt } = require("../utils");
+const { verifyPasswordHash, issueJwt } = require("../utils/auth");
 const User = require("../modules/user.module");
 
 exports.allowedTo = (...roles) =>
@@ -31,10 +31,8 @@ exports.login = asyncHandler(async (req, res, next) => {
     .status(200)
     .cookie("jwt", token, { sameSite: "Strict", httpOnly: true })
     .json({ data: user });
-  //user.tokens.push(token )
-  //await user.save()
 });
 
 exports.logout = asyncHandler(async (req, res, next) => {
-  res.status(203).clearCookie("jwt").json({ message: "Logout successful" });
+  res.status(204).clearCookie("jwt").json({ message: "Logout successful" });
 });

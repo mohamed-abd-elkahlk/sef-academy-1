@@ -21,7 +21,7 @@ const jobSchema = new mongoose.Schema(
     },
     postedAt: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
     jobType: {
       type: String,
@@ -35,13 +35,16 @@ const jobSchema = new mongoose.Schema(
       },
     ],
     location: String,
-    salaryRange: String,
+    salaryRange: {
+      from: Number,
+      to: Number,
+    },
     currency: {
       type: String,
       default: "USD",
     },
     jobDescription: String,
-    requirements: String,
+    requirements: [String],
     skills: [String],
   },
   { timestamps: true }

@@ -1,5 +1,18 @@
 const router = require("express").Router();
-router.route("/").get().post();
-router.route("/:id").get().post().put();
+
+const {
+  createCertifacte,
+  deleteCertifacte,
+  getAllCertifacte,
+  getOneCertifacte,
+  updateCertifacte,
+} = require("../services/certificate.service");
+
+router.route("/").get(getAllCertifacte).post(createCertifacte);
+router
+  .route("/:id")
+  .get(getOneCertifacte)
+  .delete(deleteCertifacte)
+  .put(updateCertifacte);
 
 module.exports = router;

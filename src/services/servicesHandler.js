@@ -3,7 +3,6 @@ const { ApiError, ApiFeatures } = require("../utils");
 
 exports.deleteOne = (Model) =>
   asyncHandeler(async (req, res, next) => {
-    I;
     const { id } = req.params;
     const document = await Model.findByIdAndDelete(id);
     if (!document) {

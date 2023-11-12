@@ -25,5 +25,5 @@ const examSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
-exports.Exam = mongoose.model("Exam", examSchema);
+const Exam = mongoose.model("Exam", examSchema);
+module.exports = Exam;

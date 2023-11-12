@@ -9,14 +9,14 @@ const {
   deleteCourse,
   updateCourse,
 } = require("../services/course.service");
-router.use(
-  passport.authenticate("jwt", {
-    session: false,
-    ignoreExpiration: false,
-    userProperty: "user",
-  }),
-  allowedTo("admin", "instarcort")
-);
+// router.use(
+//   passport.authenticate("jwt", {
+//     session: false,
+//     ignoreExpiration: false,
+//     userProperty: "user",
+//   }),
+//   allowedTo("admin", "instarcort")
+// );
 router.route("/").post(createCourse).get(getAllCourses);
 
 router.route("/:id").put(updateCourse).delete(deleteCourse).get(getOneCourse);

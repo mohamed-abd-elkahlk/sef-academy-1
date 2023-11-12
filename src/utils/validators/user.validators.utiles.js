@@ -3,16 +3,24 @@ const { check } = require("express-validator");
 const {
   validatorMiddleware,
 } = require("../../middlewares/validator.middleware");
-const ApiError = require("../index");
+const { ApiError } = require("../index");
 
 const User = require("../../modules/user.module");
 
 exports.createUserValidate = [
-  check("name").notEmpty().withMessage("user name is required").isString(),
-  check("mobile")
+  check("first_name")
+    .notEmpty()
+    .withMessage("user first name is required")
+    .isString(),
+  check("last_name")
+    .notEmpty()
+    .withMessage("user  last name is required")
+    .isString(),
+  check("contact_info.mobile")
     .notEmpty()
     .withMessage("user mobile is required")
     .isMobilePhone(["ar-EG"]),
+  check("contact_info.email").notEmpty().isEmail(),
   check("userId")
     .notEmpty()
     .withMessage("user id is required")
@@ -27,8 +35,7 @@ exports.createUserValidate = [
     }),
   check("password").notEmpty().withMessage("password is required").isString(),
   check("role").optional().isIn(["admin", "instructor", "student"]),
-  check("active").optional().isBoolean(),
-  check("avatar").optional().isString(),
+  check("active").notEmpty().isBoolean(),
 
   validatorMiddleware,
 ];

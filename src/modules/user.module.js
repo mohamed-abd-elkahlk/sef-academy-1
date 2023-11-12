@@ -1,7 +1,12 @@
 const mongoose = require("mongoose");
+const { genPasswordHash } = require("../utils/auth");
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    first_name: {
+      type: String,
+      trim: true,
+    },
+    last_name: {
       type: String,
       trim: true,
     },
@@ -30,18 +35,14 @@ const userSchema = new mongoose.Schema(
     city: { type: String },
     country: { type: String },
     education: {
-      university: { type: String, required: true },
+      university: { type: String },
       major: { type: String },
       graduation_year: { type: Number },
     },
-    contact_info: [
-      {
-        email: String,
-        mobile: Number,
-      },
-    ],
-    cv: { type: String },
-
+    contact_info: {
+      email: String,
+      mobile: Number,
+    },
     salt: {
       type: String,
     },
@@ -52,13 +53,12 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-userSchema.pre("save", (next) => {
-  if (!this.isModified("password")) {
-    return next();
-  }
+userSchema.pre("save", function (next) {
+  if (!this.isModified("password")) return next();
   const password = genPasswordHash(this.password);
   this.password = password.hashedPassword;
   this.salt = password.salt;
+
   next();
 });
 

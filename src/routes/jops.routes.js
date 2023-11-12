@@ -16,11 +16,20 @@ const {
   mongoIdValidate,
 } = require("../utils/validators/mongoId.validators.utiles");
 
+const passport = require("passport");
+router.use(
+  passport.authenticate("jwt", {
+    session: false,
+    ignoreExpiration: false,
+    userProperty: "user",
+  })
+);
 router.route("/").post(createJopValidate, createJob).get(getAllJobs);
 // TODO: add uplaod files middlewer ok
 router
-  .route(":id")
-  .put(updateJopValidate, updateJob)
+  .route("/:id")
+  .patch(updateJopValidate, updateJob)
   .delete(mongoIdValidate, deleteJob)
   .get(mongoIdValidate, getOneJob);
+
 module.exports = router;
