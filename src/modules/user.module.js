@@ -49,6 +49,15 @@ const userSchema = new mongoose.Schema(
     avatar: {
       type: String,
     },
+    // TODO: add some Courses logic later
+    courses: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Course",
+    },
+    applyedJops: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Course",
+    },
   },
   { timestamps: true }
 );

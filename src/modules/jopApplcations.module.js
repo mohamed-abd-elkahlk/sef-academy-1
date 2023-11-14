@@ -5,7 +5,7 @@ const jopApplicationScheam = new mongoose.Schema({
     ref: "user",
     type: mongoose.Schema.ObjectId,
   },
-  jop: {
+  job: {
     ref: "Job",
     type: mongoose.Schema.ObjectId,
   },

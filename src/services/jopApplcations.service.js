@@ -34,6 +34,7 @@ exports.createJobApplication = asyncHandler(async (req, res, next) => {
     email: req.user.contact_info.email || req.body.email,
     mobile: req.user.contact_info.mobile || req.body.mobile,
     experience: req.body.experience,
+    job: req.params.jobId,
   });
   if (!jopApplcations) {
     return next(

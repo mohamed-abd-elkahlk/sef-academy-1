@@ -6,7 +6,7 @@ exports.deleteOne = (Model) =>
     const { id } = req.params;
     const document = await Model.findByIdAndDelete(id);
     if (!document) {
-      return next(ApiError(`can't find this id ${id}`, 404));
+      return next(new ApiError(`can't find this id ${id}`, 404));
     }
     res.status(204).json({});
   });
@@ -46,7 +46,7 @@ exports.getAll = (Model) =>
     const { mongooseQuery, pagenation } = Api;
     const document = await mongooseQuery;
     if (!document) {
-      return next(ApiError(`Could not find document`, 404));
+      return next(new ApiError(`Could not find document`, 404));
     }
     res.status(200).json({
       result: document.length,
@@ -61,7 +61,7 @@ exports.getOne = (Model) =>
     const document = await Model.findById(id);
 
     if (!document) {
-      return next(ApiError(`no document with this id : ${id}`, 404));
+      return next(new ApiError(`no document with this id : ${id}`, 404));
     }
 
     res.status(200).json({ data: document });

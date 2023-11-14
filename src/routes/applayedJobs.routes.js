@@ -8,6 +8,9 @@ const {
 } = require("../services/jopApplcations.service");
 
 const passport = require("passport");
+const {
+  createJopValidator,
+} = require("../utils/validators/applayJop.validator");
 
 router.use(
   passport.authenticate("jwt", {
@@ -17,9 +20,9 @@ router.use(
   })
 );
 router.route("/").get(getAllJobApplications);
-router.route("/:jobId").post(createJobApplication);
+router.route("/:jobId").post(createJopValidator, createJobApplication);
 router
-  .route("/applay/:id")
+  .route("/change/:id")
   .get(getOneJobApplication)
   .delete(deleteJobApplication)
   .put(updateJobApplication);

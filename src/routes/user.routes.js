@@ -25,14 +25,14 @@ const { allowedTo } = require("../services/auth.service");
 
 // router.use(allowedTo("user"));
 
-const passport = require("passport");
-router.use(
-  passport.authenticate("jwt", {
-    session: false,
-    ignoreExpiration: false,
-    userProperty: "user",
-  })
-);
+// const passport = require("passport");
+// router.use(
+//   passport.authenticate("jwt", {
+//     session: false,
+//     ignoreExpiration: false,
+//     userProperty: "user",
+//   })
+// );
 
 router.get("/me", getMe);
 router.patch("/change/password", updateLoggedUserPassword);

@@ -13,6 +13,7 @@ const courseSchema = new mongoose.Schema({
   numberOfLessons: Number,
   certificate: Boolean,
   level: Number,
+  status: { type: String, enum: ["ongoing", "upcoming"] },
   instructor: {
     type: mongoose.Types.ObjectId,
     ref: "User",
