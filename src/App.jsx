@@ -1,35 +1,33 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Articles from "./components/simple/articles/Articles";
+import ButtonCreation from "./components/simple/button/ButtonCreation";
+import CategoryItem from "./components/simple/categoryItem/CategoryItem";
+import GoToTop from "./components/simple/goToTop/GoToTop";
+import PanelType from "./components/simple/panelType/PanelType";
+import ReadMore from "./components/simple/readMore/ReadMore";
+import SearchInJobsButton from "./components/simple/searchInput/SearchInJobsButton";
+import Sidebar from "./components/simple/sidebar/SideBar";
+import TimeAgo from "./components/simple/timeAgo/TimeAgo";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <CategoryItem cat={"TECH"} />
+      <TimeAgo timeAgo={"2days"} color={"dark"} />
+      <ReadMore color={"transparent"} />
+      <GoToTop color={"dark"} />
+      <Articles />
+      <PanelType type="admin" date={"6th june 2023"} />
+      <ButtonCreation title="create" />
+      <ButtonCreation title="save" />
+      <ButtonCreation title="login" />
+      <SearchInJobsButton />
+      <SearchInJobsButton />
+      <SearchInJobsButton />
+      <SearchInJobsButton />
+      <Sidebar />
+    </div>
   );
-}
+};
 
 export default App;
