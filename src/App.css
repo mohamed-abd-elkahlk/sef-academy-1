@@ -1,42 +1,57 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+    --Primary: #bf9b30;
+    --secondaryColor: #e7e7e8;
+
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.home-line {
+    background-color: #bf9b30;
+    height: 1px;
+    margin: -12px 0 8px;
+    width: 60px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-contact {
+    border: 2px solid var(--Primary);
+    &:hover{
+        background-color: var(--Primary);
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.btn-gold {
+    background-color: var(--Primary) !important;
+    border: none;
 }
 
-.card {
-  padding: 2em;
+.full-width {
+    width: 100%;
 }
 
-.read-the-docs {
-  color: #888;
+.search-job {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background-color:#414141;
+    color: var(--secondaryColor) !important;
+    text-align: center;
+    width: 100%;
+    &:focus {
+    background-color: #414141;
+    }
+    &::placeholder { 
+        color: var(--secondaryColor);
+    }
+}
+
+.search-icon {
+    position: absolute;
+    top: 11px;
+    right: 12px;
+    color: var(--Primary);
+    z-index: 100;
+}
+
+.sidebar {
+    background-color:#1a1818;
+    color: var(--secondaryColor) !important;
 }
