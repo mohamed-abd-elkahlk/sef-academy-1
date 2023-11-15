@@ -1,5 +1,6 @@
 const router = require("express").Router();
 
+const passport = require("passport");
 const {
   getOneArticle,
   getAllArticles,
@@ -7,13 +8,25 @@ const {
   deleteArticle,
   updateArticle,
 } = require("../services/aticals.service");
+const {
+  createArticlevalidate,
+  deletearticlevalidation,
+  getOneArticlevalidation,
+  updateArticlevalidate,
+} = require("../utils/validators/articles.validator.utils");
 
-router.route("/").post(createArticle).get(getAllArticles);
+router.get("/", getAllArticles).get("/:id", getOneArticle);
 
-router
-  .route("/:id")
-  .put(updateArticle)
-  .delete(deleteArticle)
-  .get(getOneArticle);
+router.use(
+  passport.authenticate("jwt", {
+    userProperty: "user",
+    session: false,
+    ignoreExpiration: false,
+  })
+);
+
+router.route("/").post(createArticlevalidate, createArticle);
+
+router.route("/:id").put(updateArticle).delete(deleteArticle);
 
 module.exports = router;

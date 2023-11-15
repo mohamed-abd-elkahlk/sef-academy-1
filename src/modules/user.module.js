@@ -54,10 +54,12 @@ const userSchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "Course",
     },
-    applyedJops: {
-      type: mongoose.Schema.ObjectId,
-      ref: "Course",
-    },
+    applyedJops: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: "jopApplication",
+      },
+    ],
   },
   { timestamps: true }
 );

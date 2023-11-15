@@ -12,9 +12,16 @@ const certificateSchema = new mongoose.Schema(
       ref: "Course",
       required: [true, "course id is required"],
     },
-    duration: {
+    uploadDate: {
       type: String,
-      required: [true, "duration is required"],
+      required: [true, "uploadDate is required"],
+    },
+    dateAcqired: {
+      type: String,
+      required: [true, "uploadDate is required"],
+    },
+    certificate: {
+      type: String,
     },
   },
   { timestamps: true }

@@ -1,6 +1,7 @@
 const apiServices = require("./servicesHandler");
 const JopApplication = require("../modules/jopApplcations.module");
 const Job = require("../modules/jop.module");
+const User = require("../modules/user.module");
 const asyncHandler = require("express-async-handler");
 const { ApiError } = require("../utils");
 
@@ -14,9 +15,8 @@ exports.deleteJobApplication = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const jobApplication = await JopApplication.findByIdAndDelete(id);
   if (!jobApplication) {
-    return next(ApiError(`can't find this id ${id}`, 404));
+    return next(new ApiError(`can't find this id ${id}`, 404));
   }
-  console.log(jobApplication);
   const jop = await Job.findByIdAndUpdate(
     jobApplication.jop,
     {
@@ -24,6 +24,11 @@ exports.deleteJobApplication = asyncHandler(async (req, res, next) => {
     },
     { new: true }
   );
+
+  await User.findByIdAndUpdate(req.user._id, {
+    $pull: { applyedJops: jobApplication._id },
+  });
+
   res.status(204).json({});
 });
 
@@ -56,5 +61,8 @@ exports.createJobApplication = asyncHandler(async (req, res, next) => {
       )
     );
   }
-  res.status(201).json({ data: jopApplcations, jop });
+  await User.findByIdAndUpdate(req.user._id, {
+    $addToSet: { applyedJops: jopApplcations._id },
+  });
+  res.status(201).json({ data: jopApplcations });
 });

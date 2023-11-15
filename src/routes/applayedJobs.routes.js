@@ -10,6 +10,7 @@ const {
 const passport = require("passport");
 const {
   createJopValidator,
+  deleteJopValidator,
 } = require("../utils/validators/applayJop.validator");
 
 router.use(
@@ -24,7 +25,7 @@ router.route("/:jobId").post(createJopValidator, createJobApplication);
 router
   .route("/change/:id")
   .get(getOneJobApplication)
-  .delete(deleteJobApplication)
+  .delete(deleteJopValidator, deleteJobApplication)
   .put(updateJobApplication);
 
 module.exports = router;

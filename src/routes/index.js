@@ -10,15 +10,15 @@ const examsRoute = require("./exam.routes");
 const certificateRoute = require("./certificate.routes");
 const jopApplicationRoute = require("./applayedJobs.routes");
 
-router.use("/category", categoryRoute);
-router.use("/auth", authRoute);
-router.use("/articales", articalesRoute);
-router.use("/jobs", jopsRoute);
-router.use("/user", userRoute);
-router.use("/courses", coursesRoute);
+router.use("/category", categoryRoute); //? cheked
+router.use("/auth", authRoute); //? cheked
+router.use("/articles", articalesRoute); //? cheked
+router.use("/jobs", jopsRoute); //? cheked
+router.use("/user", userRoute); //? cheked
+router.use("/courses", coursesRoute); //? cheked
 // ! ////////////////////////////////////
-router.use("/exams", examsRoute);
+router.use("/exams", examsRoute); //? cheked
 router.use("/certificate", certificateRoute);
-router.use("/application", jopApplicationRoute);
+router.use("/application", jopApplicationRoute); //? cheked
 
 module.exports = router;

@@ -25,6 +25,12 @@ const courseSchema = new mongoose.Schema({
       ref: "Student",
     },
   ],
+  exams: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Exam",
+    },
+  ],
 });
 
 // TODO:  add this filed to courseScheam {level,student's,instarctor,img,students}

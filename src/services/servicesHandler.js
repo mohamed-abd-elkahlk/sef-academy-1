@@ -13,6 +13,12 @@ exports.deleteOne = (Model) =>
 
 exports.createOne = (Model) =>
   asyncHandeler(async (req, res, next) => {
+    if (req.body.owner) {
+      req.body.owner = req.user._id;
+    }
+    if (req.body.instructor) {
+      req.body.instructor = req.user._id;
+    }
     const document = await Model.create(req.body);
     res.status(201).json({ document });
   });
