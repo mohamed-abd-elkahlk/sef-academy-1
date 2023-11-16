@@ -1,39 +1,34 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import Api from "../../api/Api";
 
-export const fetchJobs = createAsyncThunk("jobs/fetchJops", async () => {
-  try {
-    const resposne = await Api.get("/jobs");
-    return resposne.data;
-  } catch (error) {
-    const errorMassege = error.response.data.message;
-    return errorMassege;
-  }
+export const fetchUsers = createAsyncThunk("user/fetchUsers", async () => {
+  const resposne = await Api.get("/user/admin");
+  return resposne.data;
 });
-
+// TODO: create some fetches to the normal user activety
 const initialState = {
-  jobs: [],
+  users: [],
   status: "idle", // 'idle' | 'loading' | 'succeeded' | 'failed'
   error: null,
 };
 
-const jobsSlice = createSlice({
+const usersSlice = createSlice({
   name: "posts",
   initialState,
   extraReducers(builder) {
     builder
-      .addCase(fetchJobs.pending, (state) => {
+      .addCase(fetchUsers.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchJobs.fulfilled, (state, action) => {
+      .addCase(fetchUsers.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.jobs = action.payload;
+        state.users = action.payload;
       })
-      .addCase(fetchJobs.rejected, (state, action) => {
+      .addCase(fetchUsers.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
   },
 });
 
-export default jobsSlice.reducer;
+export default usersSlice.reducer;
