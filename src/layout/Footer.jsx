@@ -5,7 +5,7 @@ function Footer() {
     <>
       <footer style={{ background: "#333" }}>
         <img src={logo} alt="" />
-        <div className="father">
+        <div className="">
           <div className="first-child">
             <h2> SOFTWARE ENGINEERING FOR FUTURE </h2>
             <div>
