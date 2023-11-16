@@ -1,4 +1,4 @@
-import logo from "../assets/Images/seff_logo_black.jpg";
+import logo from "../assets/Images/favicon.ico";
 
 function Footer() {
   return (
