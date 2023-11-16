@@ -1,0 +1,13 @@
+.view-details {
+  background-color: #ffc107 !important;
+  border-color: transparent !important;
+  width: 8rem;
+}
+
+.wrap-up {
+  width: 90%;
+}
+
+.button-holder {
+  justify-content: flex-end;
+}

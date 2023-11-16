@@ -1,0 +1,16 @@
+.skill-card {
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.5rem 0.5rem;
+}
+
+.view-details {
+  background-color: #ffc107 !important;
+  border-color: transparent !important;
+}
+
+.button-holder {
+  display: flex;
+  justify-content: flex-end;
+}
