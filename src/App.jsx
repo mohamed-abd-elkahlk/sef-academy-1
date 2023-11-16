@@ -19,9 +19,9 @@ function App() {
     "lorem ipsum here is some gibberish to clarify the difference between the title and those of description in those ways font size and if normal or italic, i wrote some gibberish but i don't how many word did i wrote here ";
   return (
     <Container>
-      <CertificateForm />
+      <ArticlesCardCommon />
     </Container>
   );
-};
+}
 
 export default App;
