@@ -1,7 +1,10 @@
 :root {
     --Primary: #bf9b30;
     --secondaryColor: #e7e7e8;
+}
 
+.color-main {
+    color: var(--Primary);
 }
 
 .home-line {
@@ -11,7 +14,7 @@
     width: 60px;
 }
 
-.btn-contact {
+.btn-contact, .btn-exam {
     border: 2px solid var(--Primary);
     &:hover{
         background-color: var(--Primary);
@@ -54,4 +57,22 @@
 .sidebar {
     background-color:#1a1818;
     color: var(--secondaryColor) !important;
+}
+
+.user-status {
+    background-color: var(--Primary) !important;
+}
+
+.coming-card {
+    background-color: #424649 !important;
+    /* width: fit-content; */
+    padding: 1rem;
+}
+
+.calendar {
+    width: 100px !important;
+}
+
+.instructor {
+    color: var(--Primary);
 }
