@@ -1,0 +1,17 @@
+#root {
+  max-width: 1280px;
+  margin: 0 ;
+  padding: 2rem;
+} 
+body{
+   background-color:  rgb(25, 23, 23); 
+ --Primary: #bf9b30;
+ --secondaryColor: #e7e7e8; 
+ --Primary-light-opacity:rgba(231,188,60,0.5);
+ --hover:#dbb338;
+ color:  #e7e7e8;
+
+}
+
+
+
