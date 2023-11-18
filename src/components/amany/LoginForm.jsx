@@ -12,11 +12,11 @@ import {
 }
 from 'mdb-react-ui-kit';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../App.css'
-import { PiUserRectangle } from "react-icons/pi";
-import { BiShow } from "react-icons/bi";
-import Logo from '../assests/seff_logo_black.jpg'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'amany.css'
+// import { PiUserRectangle } from "react-icons/pi";
+// import { BiShow } from "react-icons/bi";
+import Logo from '../assests/Images/seff_logo_black.jpg';
 
 
 const LoginForm = () =>
@@ -25,7 +25,6 @@ const LoginForm = () =>
     userId: '',
     password: '',
   });
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({

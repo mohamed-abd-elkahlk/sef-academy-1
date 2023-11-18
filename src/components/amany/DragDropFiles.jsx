@@ -38,7 +38,7 @@ const DragDropFiles = () =>
   )
 
   return (
-     <>
+    <>
         <div className='uploader'>
         <div
           className="dropzone"
@@ -47,7 +47,6 @@ const DragDropFiles = () =>
         >
             <h1 className='upldIcon'> <LiaCloudUploadAltSolid /></h1>
             
-           
           
           <input
             type="file"
