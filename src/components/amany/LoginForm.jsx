@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import {
   MDBBtn,
   MDBContainer,
@@ -8,22 +8,19 @@ import {
   MDBCardBody,
   MDBInput,
   MDBIcon,
-  MDBCheckbox
-}
-from 'mdb-react-ui-kit';
+  MDBCheckbox,
+} from "mdb-react-ui-kit";
 
-// import 'bootstrap/dist/css/bootstrap.min.css'
-import 'amany.css'
-// import { PiUserRectangle } from "react-icons/pi";
-// import { BiShow } from "react-icons/bi";
-import Logo from '../assests/Images/seff_logo_black.jpg';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./amany.css";
+import { PiUserRectangle } from "react-icons/pi";
+import { BiShow } from "react-icons/bi";
+import Logo from "../../assets/Images/seff_logo_black.jpg";
 
-
-const LoginForm = () =>
-{
-    const [formData, setFormData] = useState({
-    userId: '',
-    password: '',
+const LoginForm = () => {
+  const [formData, setFormData] = useState({
+    userId: "",
+    password: "",
   });
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,64 +30,54 @@ const LoginForm = () =>
     });
   };
 
-  const handleFormSubmit = (e) =>
-  {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-  }
-
-
+  };
 
   return (
- 
     <div className="login-form-container container-overlay">
-         <div className="logo-container">
+      <div className="logo-container">
         <img src={Logo} alt="Logo" className="logo-img" />
       </div>
- <MDBContainer fluid>
-
-      <MDBRow className=' d-flex justify-content-center align-items-center h-100'>
-        <MDBCol col='12'>
-
-          <MDBCard className=' my-5 mx-auto' >
-            <MDBCardBody className='bg1 
-            p-5 w-100 d-flex flex-column'>
-
+      <MDBContainer fluid>
+        <MDBRow className=" d-flex justify-content-center align-items-center h-100">
+          <MDBCol col="12">
+            <MDBCard className=" my-5 mx-auto">
+              <MDBCardBody
+                className="bg1 
+            p-5 w-100 d-flex flex-column"
+              >
                 <MDBInput
-                  wrapperClass='mb-4 w-100'
-                  placeholder='USER ID'
-                  id='formControlLg'
-                  type='email'
+                  wrapperClass="mb-4 w-100"
+                  placeholder="USER ID"
+                  id="formControlLg"
+                  type="email"
                   size="lg"
-                    name="userId"
-                    value={formData.userId}
-                    onChange={handleInputChange}
+                  name="userId"
+                  value={formData.userId}
+                  onChange={handleInputChange}
                 />
-                <MDBInput wrapperClass='mb-4 w-100' placeholder='password' id='formControlLg' type='password' size="lg"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
+                <MDBInput
+                  wrapperClass="mb-4 w-100"
+                  placeholder="password"
+                  id="formControlLg"
+                  type="password"
+                  size="lg"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
                 />
-                
-              <p className='pForm'>Forget your password?</p>
 
+                <p className="pForm">Forget your password?</p>
 
-                <MDBBtn  style={{ backgrounColor:'#bf9b30'}} >
-                Login
-              </MDBBtn>
-
-         
-
-                
-
-            </MDBCardBody>
-          </MDBCard>
-
-        </MDBCol>
-      </MDBRow>
-
+                <MDBBtn style={{ backgrounColor: "#bf9b30" }}>Login</MDBBtn>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
       </MDBContainer>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default LoginForm
+export default LoginForm;
