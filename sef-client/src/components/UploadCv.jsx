@@ -6,10 +6,25 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-function UploadCv({email,yearsOfExperience,mobileNumber,handleYearsOfExperienceChange,
+function UploadCv({save,handleSave,cancel,handleCancel,email,yearsOfExperience,mobileNumber,handleYearsOfExperienceChange,
     handleEmailChange,handleMobileNumberChange}) {
   return (
  <>
+ <div className='amount'> <span className='salary'style={{fontSize:25,marginLeft:700, }}>5000EGP-8000EGP</span>
+ <h5 className='location'style={{fontSize:25,marginLeft:780, }}>Onsite</h5>
+</div>
+   <div className='Frontend'>
+ <h2 className='title1' style={{fontSize:29, marginRight:300,}}>Front-end React JS Developer</h2>
+ <p className="text1" style={{fontSize:25, marginRight:300,marginBottom:200}}> Eptikar IT solution</p>
+ </div>
+
+
+  <div className='info1'>
+ <h2 className='title' style={{fontSize:29, marginRight:300,}}>Bilqees Sabir Hamdi</h2>
+ <p className="info-text" style={{fontSize:25, marginRight:300,}}>Computer Sience, International Islamic University</p>
+
+ </div>
+
     <Form>
       <Row className="email">
         <Form.Group as={Col} controlId="formEmail">
@@ -38,21 +53,17 @@ function UploadCv({email,yearsOfExperience,mobileNumber,handleYearsOfExperienceC
                 value={mobileNumber}/>
       </Form.Group>
 
-      <Row className="mb-3">
-
-
-      </Row>
-
-
-      <Button  type="submit" onClick={handlePublish} value={publish}  style={{backgroundColor:"#bf9b30"}}>
-        Publish
+      <Button  type="cancel" onClick={handleCancel} value={cancel}  style={{backgroundColor:"grey",marginRight:7, width:100}}>
+        Cancel
+      </Button>
+      <Button  type="save" onClick={handleSave} value={save}  style={{backgroundColor:"#bf9b30", width:100}}>
+        Save
       </Button>
 
-    </Form>
-    <div className='questios'>
 
-        <h4 className='Questions' style={{marginTop:70}}>Questions</h4>
-    </div>
+
+
+    </Form>
     </>
   );
 }
