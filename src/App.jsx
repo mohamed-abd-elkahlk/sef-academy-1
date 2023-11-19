@@ -7,6 +7,9 @@ import JobMainInfo from "./components/complex/JobMainInfo/JobMainInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import JobForm from "./components/complex/JobForm/JobForm";
 import CertificateForm from "./components/complex/CertificateForm/CertificateForm";
+import ArticlesForm from "./components/complex/ArticlesForm/ArticlesForm";
+import UserForm from "./components/complex/UserForm/UserForm";
+import CoursesForm from "./components/complex/CoursesForm/CoursesForm";
 function App() {
   const desc =
     "Nile Creations is a creative digital marketing communications agency works above, below and through the line. We are ...More";
@@ -19,7 +22,7 @@ function App() {
     "lorem ipsum here is some gibberish to clarify the difference between the title and those of description in those ways font size and if normal or italic, i wrote some gibberish but i don't how many word did i wrote here ";
   return (
     <Container>
-      <CertificateForm />
+      <CoursesForm />
     </Container>
   );
 }

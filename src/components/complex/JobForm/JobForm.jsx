@@ -140,9 +140,12 @@ const JobForm = () => {
           </Container>
         </Col>
       </Row>
-      <Row className="justify-content-end mb-4">
+      <Row className="justify-content-around justify-content-md-end mb-4 ">
         <Col xs={2}>
-          <Button type="submit" className="view-details">
+          <Button className="view-details cancel-btn">Cancel</Button>
+        </Col>
+        <Col xs={2} className="ps-md-5">
+          <Button type="submit" className="view-details me-5">
             Submit
           </Button>
         </Col>

@@ -9,19 +9,19 @@ const CertificateForm = () => {
       </Row>
       <Row>
         <Col xs={12} sm={4}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Label>Student Name</Form.Label>
             <Form.Control type="text" className="bg-input text-white " />
           </Form.Group>
         </Col>
         <Col xs={12} sm={4}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Label>Date Acquired</Form.Label>
             <Form.Control type="date" className="bg-input text-white " />
           </Form.Group>
         </Col>
         <Col xs={12} sm={4}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Label>Upload Date</Form.Label>
             <Form.Control type="date" className="bg-input text-white " />
           </Form.Group>
