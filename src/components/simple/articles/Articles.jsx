@@ -1,7 +1,7 @@
 import { CardGroup, Col, Row } from "react-bootstrap";
 import ArticlesCard from "./ArticlesCard";
 import ArticleWithImg from "./ArticleWithImg";
-
+import "bootstrap/dist/css/bootstrap.css";
 const Articles = () => {
   const articles = [
     {

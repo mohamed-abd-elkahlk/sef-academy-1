@@ -1,33 +1,40 @@
-import logo from "../assets/Images/favicon.ico";
-
+import logo from "../assets/Images/seff_logo_transparent.png";
+import GoToTop from "../components/simple/goToTop/GoToTop";
 function Footer() {
   return (
-    <>
-      <footer style={{ background: "#333" }}>
-        <img src={logo} alt="" />
-        <div className="">
-          <div className="first-child">
-            <h2> SOFTWARE ENGINEERING FOR FUTURE </h2>
-            <div>
-              HOME ABOUT TECH BUSINESS SECURITY MEDICAL STARTUPS APPS COURSES
-              CONTACTUS SPORTS
-            </div>
-          </div>
-          <div className="second-child">
-            <ul>
-              <li>sefffuture@gmail.com</li>
-              <li>+201098481288</li>
-              <li>+201555177645</li>
-            </ul>
+    <footer className="flex flex-col">
+      <div className="mr-3 flex">
+        <img src={logo} alt="" className="w-[px] h-[120px] rounded-[50%]" />
+        <GoToTop />
+      </div>
+      <div>
+        <h1>software engineering for future</h1>
+        <ul>
+          <li>Home</li>
+          <li>ABOUT</li>
+          <li>TECH</li>
+          <li>BUSSINESS</li>
+          <li>SECURITY</li>
+          <li>MEDICAL</li>
+          <li>STARTUPS</li>
+          <li>APPS</li>
+          <li>CONTATCT US</li>
+          <li>SPORTS</li>
+        </ul>
+        <div className="contact info">
+          <p>sefffuters@gmail.com</p>
+          <div>
+            <small>+201098481288</small>
+            <small>+20 155 5177 645</small>
           </div>
         </div>
-        <hr />
-        <div className="last">
-          <div> @2023 EGYPT,ALLRIGHTS RESERVED</div>
-          <div className="icons"></div>
-        </div>
-      </footer>
-    </>
+      </div>
+      <hr />
+      <div>
+        <p>@2023 EGYPT,ALL RIGHTS RESERVED</p>
+        <div>icons here</div>
+      </div>
+    </footer>
   );
 }
 

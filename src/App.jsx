@@ -1,12 +1,19 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import LoginForm from "./components/amany/LoginForm";
-import { Container } from "postcss";
+import Navbar from "./layout/Navbar";
+import Home from "./pages/Home";
+import Footer from "./layout/Footer";
 function App() {
   return (
-    <Container>
-      <LoginForm />
-    </Container>
+    <>
+      <div className="container h-[100vh]">
+        <Navbar />
+        {/* <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes> */}
+        <Footer />
+      </div>
+    </>
   );
 }
 
