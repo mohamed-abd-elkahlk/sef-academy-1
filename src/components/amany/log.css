@@ -1,0 +1,83 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --main: #bf9b30;
+  --main-light: #e7bc3c;
+  --main-light-opacity: rgba(231, 188, 60, .5);
+  --hover: #dbb338;
+}
+.login-form-container{
+position: relative;
+width: 500px;
+margin: 0 auto;
+padding-top: 200px;
+padding-bottom: 0;
+
+}
+.logo-img{
+  box-shadow: 1px 1px 10px black;
+  width: 120px;
+  height: 120px;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.btn-main{
+  background-color: var(--main);
+  max-height: 100%;
+}
+.btn-main:hover,
+.btn-main:focus {
+  background-color: var(--hover);
+}
+.text-main{
+  color: var(--main);
+}
+.bg-main{
+  background-color: var(--main);
+}
+.bg-grey {
+  background-color:gray;
+
+}
+.bg-main-light{
+  background-color: var(--main-light);
+}
+.bg-main-light-opacity {
+  background-color: var(--main-light-opacity);
+}
+.btn-main:hover{
+  background-color: var(--hover);
+}
+.logform{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.log-form{
+  border: none;
+  outline: none;
+}
+.log-form:focus {
+  border: none;
+  outline: none;
+  background-color: gray;
+  box-shadow: none;
+}
+.icon-user,.icon-pass,.showPass{
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 62px;
+  padding: 8px;
+  border-radius: 10%;
+  background-color: gray;
+  margin: auto;
+  text-align: center;
+}
+.showPass{
+  right: 0;
+}
