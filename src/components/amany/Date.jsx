@@ -2,6 +2,7 @@ import { React,useState } from 'react'
 import { LuCalendarDays } from "react-icons/lu";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import '../App.css'
 
 const Date = () =>
 {
