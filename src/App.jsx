@@ -1,8 +1,9 @@
-import { Route, Routes } from "react-router";
 import "./App.css";
 import Navbar from "./layout/Navbar";
-import Home from "./pages/Home";
 import Footer from "./layout/Footer";
+import JobSearch from "./components/simple/searchjob/JobSearch";
+import JobSidebar from "./components/simple/jobsearchsidebar/JobSidebar";
+import FirstStep from "./components/simple/cvforms/FirstStep";
 function App() {
   return (
     <>
@@ -11,6 +12,9 @@ function App() {
         {/* <Routes>
           <Route path="/" element={<Home />} />
         </Routes> */}
+        <JobSearch />
+        <JobSidebar />
+        <FirstStep />
         <Footer />
       </div>
     </>

@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         vuejs: "#e0e0e0",
+        primary: "#bf9b30",
       },
     },
   },

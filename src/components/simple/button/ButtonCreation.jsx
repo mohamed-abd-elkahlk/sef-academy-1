@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 const ButtonCreation = (props) => {
   return (
     <Button
-      className={`btn-gold rounded-1 text-white border-0 ms-1 ${
+      className={`btn-gold rounded-sm text-white p-3 border-0  ${
         props.w && "full-width"
       }`}
     >
