@@ -1,14 +1,15 @@
-const Navbuttons = ({ to, vlaue }) => {
-  if (vlaue === "CONTACT US") {
+import { Link } from "react-router-dom";
+const Navbuttons = ({ to, value }) => {
+  if (value === "CONTACT US") {
     return (
       <button className="border-amber-400 border-solid border-2 p-2 h-10 rounded-lg mt-10 hover:bg-amber-400 hover:text-black hover:border-none duration-300">
-        <a href={to}>{vlaue}</a>
+        <Link to={to}>{value}</Link>
       </button>
     );
   }
   return (
     <button>
-      <a href={to}>{vlaue}</a>
+      <Link to={to}>{value}</Link>
     </button>
   );
 };

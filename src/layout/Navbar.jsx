@@ -54,13 +54,13 @@ const Navbar = () => {
           />
         </div>
         <div className="buttons-holder hidden  text-white sm:hidden md:hidden lg:gap-4 lg:flex xl:gap-8 ">
-          <Navbuttons vlaue={"HOME"} />
-          <Navbuttons vlaue={"ABOUT"} />
+          <Navbuttons value="HOME" to="/" />
+          <Navbuttons value="ABOUT" to="/about" />
           <Dropdwon />
           {category.map((element) => (
-            <Navbuttons vlaue={element.name} key={element.id} />
+            <Navbuttons value={element.name} key={element.id} />
           ))}
-          <Navbuttons vlaue={"CONTACT US"} />
+          <Navbuttons value={"CONTACT US"} />
         </div>
       </nav>
       {nav ? <SideNav /> : ""}

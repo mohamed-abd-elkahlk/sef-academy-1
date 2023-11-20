@@ -1,12 +1,16 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import LoginForm from "./components/amany/LoginForm";
-import { Container } from "postcss";
+import { Route, Routes } from "react-router";
+import Navbar from "./layout/Navbar.jsx";
+import Home from "./pages/Home.jsx";
 function App() {
   return (
-    <Container>
-      <LoginForm />
-    </Container>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
   );
 }
 
