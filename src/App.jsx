@@ -6,7 +6,7 @@ import Footer from "./layout/Footer";
 function App() {
   return (
     <>
-      <div className="container h-[100vh]">
+      <div className="container">
         <Navbar />
         {/* <Routes>
           <Route path="/" element={<Home />} />
