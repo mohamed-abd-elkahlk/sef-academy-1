@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+root {
+  --primary: #bf9b30;
+  --primary-light: #e7bc3c;
+  --primary-light-opacity: rgba(231, 188, 60, .5);
+  --hover: #dbb338;
+  --gray-dark: #3a3939;
+}
+
+
+
+
+
+
+
+/* .container-overlay {
+
+  top: 0;
+  left: 0;
+  background-color: rgba(25, 25, 25, 0.93);
+  z-index: 2;
+} */
+.bg1{
+  background-color: rgba(0, 0, 0, 0.858);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+  
+ 
+}
+
+.editRemove{
+color: #bf9b30;
+font-size: 30px;
+justify-content: end;
+
+
+}
+
+
+
+
+
+.article-item {
+  text-align: start;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.8;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  padding: 10px 10px;
+  color: white;
+
+
+ 
+}
+
+.article-item>* {
+  /* width: 30%; */
+  font-size: 15px;
+  padding-left: 20px;
+  margin-bottom:0px;
+}
+.article-item p{
+  margin-bottom: 0px;
+}
+.article-date {
+  text-align: start;
+  margin-left: 80px;
+  
+}
+
+.article-date p {
+  margin-bottom: 0;
+  
+}
+.article-published {
+  padding: 4px 5px;
+  border-radius: 30px;
+  background-color: #dbb338;
+  color: #fff;
+  width:fit-content;
+  text-align: center;
+  
+}
+
+.datePicker {
+  height: 35px;
+  width: 220px;
+  border-color: black 1px;
+  background-color:rgb(20, 20, 20, 0.6);
+  border-radius: 5px;
+}
+.date{
+  font-size: 20px;
+  margin-bottom:-7px ;
+  margin-left: 10px;
+  color:rgb(165, 165, 165);
+}
+.uploader{
+  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 500px;
+  
+    border-style: dashed;
+    background-color:  rgba(7, 6, 6, 0.995);
+    font-size: 28px;
+}
+.upload{
+  color: #bf9b30;
+  height: 300px;
+}
+.drag{
+  color:white;
+  font-weight: bold;
+}
+.browse {
+  color:#bf9b30
+
+}
+.pUpload{
+  color: grey;
+  font-size: 18px;
+}
+.upldIcon{
+  font-size: 100px;
+  color: #bf9b30;
+}
+

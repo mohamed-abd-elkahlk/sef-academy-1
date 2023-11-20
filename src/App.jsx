@@ -1,15 +1,18 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router";
-import Navbar from "./layout/Navbar.jsx";
-import Home from "./pages/Home.jsx";
+import "./App.css";
+import Navbar from "./layout/Navbar";
+import Home from "./pages/Home";
+import Footer from "./layout/Footer";
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <div className="container">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   );
 }

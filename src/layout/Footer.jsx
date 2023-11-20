@@ -1,33 +1,35 @@
-import logo from "../assets/Images/favicon.ico";
-
+import logo from "../assets/Images/seff_logo_transparent.png";
+import GoToTop from "../components/simple/goToTop/GoToTop";
+import ContactInfo from "./footer/ContactInfo";
+import UiElement from "./footer/UiElement";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 function Footer() {
   return (
-    <>
-      <footer style={{ background: "#333" }}>
-        <img src={logo} alt="" />
-        <div className="">
-          <div className="first-child">
-            <h2> SOFTWARE ENGINEERING FOR FUTURE </h2>
-            <div>
-              HOME ABOUT TECH BUSINESS SECURITY MEDICAL STARTUPS APPS COURSES
-              CONTACTUS SPORTS
-            </div>
-          </div>
-          <div className="second-child">
-            <ul>
-              <li>sefffuture@gmail.com</li>
-              <li>+201098481288</li>
-              <li>+201555177645</li>
-            </ul>
-          </div>
+    <footer className="flex flex-col">
+      <GoToTop />
+      <div className="mr-3">
+        <img src={logo} alt="" className="w-[px] h-[120px] rounded-[50%]" />
+      </div>
+      <div>
+        <h1 className="text-2xl text-capitalize">
+          software engineering for future
+        </h1>
+        <div className="flex mt-6 justify-between">
+          <UiElement />
+          <ContactInfo />
         </div>
-        <hr />
-        <div className="last">
-          <div> @2023 EGYPT,ALLRIGHTS RESERVED</div>
-          <div className="icons"></div>
+      </div>
+      <hr className="border-2  border-white my-3" />
+      <div className="flex justify-between">
+        <p className="font-light">@2023 EGYPT,ALL RIGHTS RESERVED</p>
+        <div className="flex text-3xl gap-5">
+          <FaFacebook />
+          <FaTwitter />
+          <FaInstagram />
+          <FaLinkedin />
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }
 

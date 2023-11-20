@@ -54,11 +54,15 @@ const Navbar = () => {
           />
         </div>
         <div className="buttons-holder hidden  text-white sm:hidden md:hidden lg:gap-4 lg:flex xl:gap-8 ">
-          <Navbuttons value="HOME" to="/" />
-          <Navbuttons value="ABOUT" to="/about" />
+          <Navbuttons value={"HOME"} to={"/"} />
+          <Navbuttons value={"ABOUT"} to={"/about"} />
           <Dropdwon />
           {category.map((element) => (
-            <Navbuttons value={element.name} key={element.id} />
+            <Navbuttons
+              value={element.name}
+              key={element.id}
+              to={`/${element.name.toLowerCase()}`}
+            />
           ))}
           <Navbuttons value={"CONTACT US"} />
         </div>
