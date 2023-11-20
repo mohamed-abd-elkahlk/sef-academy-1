@@ -33,12 +33,16 @@ const SideNav = () => {
   ];
   return (
     <div className="buttons-holder flex text-white gap-4 flex-col w-[50%] mx-auto lg:hidden">
-      <Navbuttons value={"HOME"} />
-      <Navbuttons value={"ABOUT"} />
+      <Navbuttons value={"HOME"} to={"/"} />
+      <Navbuttons value={"ABOUT"} to={"/about"} />
       {category.map((element) => (
-        <Navbuttons value={element.name} key={element.id} />
+        <Navbuttons
+          value={element.name}
+          key={element.id}
+          to={`/${element.name.toLowerCase()}`}
+        />
       ))}
-      <Navbuttons vlaue={"CONTACT US"} />
+      <Navbuttons value={"CONTACT US"} to={"/contact"} />
     </div>
   );
 };

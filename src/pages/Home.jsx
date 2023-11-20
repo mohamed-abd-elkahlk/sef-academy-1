@@ -5,11 +5,17 @@ import { fetchArticles } from "../store/features/articalsSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const articals = useSelector((state) => state.articles.articles);
+  const articals = useSelector((state) => state.articles);
   return (
     <div>
       <h1 className="text-text-uppercase">software engineering for futer</h1>
-      <button onClick={dispatch(fetchArticles())}>fetch</button>
+      <button
+        onClick={() => {
+          dispatch(fetchArticles());
+        }}
+      >
+        fetch
+      </button>
       <br />
       <Articles />
       {/* <ArticlesWithimg /> */}
