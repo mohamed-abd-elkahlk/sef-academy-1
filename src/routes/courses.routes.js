@@ -15,7 +15,7 @@ router.use(
     ignoreExpiration: false,
     userProperty: "user",
   }),
-  allowedTo("admin", "instructor")
+  allowedTo("instructor")
 );
 router.route("/").post(createCourse).get(getAllCourses);
 

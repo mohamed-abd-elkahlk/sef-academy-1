@@ -14,6 +14,7 @@ const {
   getOneArticlevalidation,
   updateArticlevalidate,
 } = require("../utils/validators/articles.validator.utils");
+const { allowedTo } = require("../services/auth.service");
 
 router.get("/", getAllArticles).get("/:id", getOneArticle);
 
@@ -23,6 +24,7 @@ router.use(
     session: false,
     ignoreExpiration: false,
   })
+  allowedTo("admin")
 );
 
 router.route("/").post(createArticlevalidate, createArticle);

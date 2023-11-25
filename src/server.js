@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const glopalError = require("./middlewares/Error");
 const routes = require("./routes");
+const cors = require("cors");
 const dbConnection = require("./config/dbConnection");
 const { ApiError } = require("./utils");
 const passport = require("passport");
@@ -14,13 +15,17 @@ dbConnection();
 app.use(express.json());
 app.use(require("morgan")("dev"));
 app.use(require("cookie-parser")());
-
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 passport.use(require("./config/passport"));
 app.use(passport.initialize());
 
 // routes
 
-// TODO: enable this route under after create some services
 app.use("/api", routes);
 
 // handle all unused routes

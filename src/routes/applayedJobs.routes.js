@@ -12,13 +12,15 @@ const {
   createJopValidator,
   deleteJopValidator,
 } = require("../utils/validators/applayJop.validator");
+const { allowedTo } = require("../services/auth.service");
 
 router.use(
   passport.authenticate("jwt", {
     session: false,
     ignoreExpiration: false,
     userProperty: "user",
-  })
+  }),
+  allowedTo("user")
 );
 router.route("/").get(getAllJobApplications);
 router.route("/:jobId").post(createJopValidator, createJobApplication);
